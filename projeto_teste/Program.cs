@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using projeto_teste.Entities;
+using projeto_teste.Entities.Enums;
 
 namespace projeto_teste
 {
@@ -6,11 +9,20 @@ namespace projeto_teste
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Olá Mundo!");
-            Console.WriteLine("Como você está hoje?");
-            Console.WriteLine("Tenha um bom dia!");
+            Order order = new Order
+            {
+                Id = 1080,
+                Moment = DateTime.Now,
+                Status = OrderStatus.PendingPayment,
+            };
+            Console.WriteLine(order);
 
-            Console.ReadLine();
+            string txt = OrderStatus.PendingPayment.ToString();
+
+            OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
+
+            Console.WriteLine(txt);
+            Console.WriteLine(os);
         }
     }
 }
